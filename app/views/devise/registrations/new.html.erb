@@ -1,5 +1,5 @@
 <div class="container">
-  <%= render 'shared/logo' %>
+  <%#= render 'shared/logo' %>
   <div class="row">
     <div class="col d-flex justify-content-center">
       <div class="card" style="width: 25rem;">
@@ -11,8 +11,8 @@
             <%= render 'shared/error_message', object: f.object %>
 
             <div class="form-group">
-              <%= f.label :full_name %>
-              <%= f.text_field :full_name, class: 'form-control', autocomplete: 'off' %>
+              <%= f.label :name %>
+              <%= f.text_field :name, class: 'form-control', autocomplete: 'off' %>
             </div>
 
             <div class="form-group">
@@ -40,7 +40,7 @@
           <div class="m-t-20">
             <small class="text-muted">
               By clicking on "Sign up" I agree to
-              <b>Infostack</b> <%= link_to "Terms and Conditions", root_path %>
+              <b>Anōnumos</b> <%= link_to "Terms and Conditions", root_path %>
             </small>
           </div>
         </div>
