@@ -1,0 +1,30 @@
+/* .pb {
+    background-image: url('assets/user-bg.jpg');
+} */
+
+.pb {
+    background-color: #080e2f;
+}
+
+.link {
+    font-style: bold;
+}
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.m-t-10 {
+    margin-top: 10px;
+}
+
+.m-t-40 {
+    margin-top: 40px;
+}
+
+.conv_header {
+    font-size: 22px;
+    margin-left: 2px;
+}

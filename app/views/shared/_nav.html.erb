@@ -1,55 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #292254;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">
-        <%= image_tag 'logo.png', class: 'd-inline-block align-top', height: 30 %>
-            Infostack
-    </a>
+    <a class="navbar-brand" href="#">Anonumos</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+    <% if user_signed_in? %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link text-white" href="#">Home</a>
+          <a class="nav-link active" href="<%= user_path(current_user) %>">Profile <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" href="#">About</a>
+          <a class="nav-link" href="#">Settings</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" href="#">Contact</a>
+          <a href="" class="nav-link">
+            Messages
+          </a>
         </li>
-        </ul>
-        <% if user_signed_in? %>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a href="<%= user_path(current_user) %>" class="nav-link text-white">
-                        <%= current_user.email %>
-                    </a>
-                </li>
-                <li class="nav-item">
-                 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: 'nav-link text-white' %>
-                </li>
-            </ul>
-
-        <% else %>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <%= link_to 'Login', new_user_session_path, class: 'nav-link text-white' %>
-                </li>
-                <li class="nav-item">
-                    <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link text-white' %>
-                </li>
-            </ul>
-        <% end %>
+        <li class="nav-item">
+           <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+        </li>
+      </ul>
+      
+    <% else %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_user_registration_path %>">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_user_session_path %>">Login</a>
+        </li>
+      </ul>
+    <% end %>
     </div>
- </div>
+  </div>
 </nav>
-
-
-
-
-
-
-
-
