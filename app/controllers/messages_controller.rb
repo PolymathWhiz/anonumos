@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @message = Message.new
   end
@@ -8,6 +10,17 @@ class MessagesController < ApplicationController
   end
 
   def create
+    @sender = current_user
+    @receipient = User.friendly.find(params[:user_id])
+    
+    @message = @sender.messages.new(message_params)
+
+    if @message.save
+      flash[:success] = "Message has been sent."
+      redirect_to current_user
+    else
+      flash[:danger] = "Error occured while sending the message."
+    end
   end
 
   private

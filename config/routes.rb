@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   
   devise_scope :users do
     # resources :users, only: :show
-    get '/:id', to: 'users#show', as: 'user'     
+    get '/u/:id', to: 'users#show', as: 'user'     
   end
 end

@@ -9,7 +9,7 @@
               <%= @user.name %>
             </h5>
             <span class="m-t-10">
-              <a href="https://anonumos.co/users/<%= @user.slug %>"> anonumos.co/<%= @user.slug %></a>
+              <a href="https://anonumos.co/<%= @user.slug %>"> anonumos.co/<%= @user.slug %></a>
             </span>
           </div>
         </div>
@@ -31,7 +31,7 @@
             <span class="conv_header">Conversations</span>
           </div>
           <div class="card-body">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
             </li>
@@ -85,8 +85,16 @@
     </div>
   <% else %>
 
-    <div class="form-group m-t-10">
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="type something awesome"></textarea>
+    <div class="row">
+      <div class="col-md-2 col-lg-2"></div>
+      <div class="col-md-8 col-lg-8">
+        <%= form_for(@message, url: messages_path) do |f| %>
+          <div class="form-group m-t-25">
+            <%= f.text_area :text, class: "form-control area-rounded", placeholder: 'Say something awesome', rows: 7 %>
+          </div>
+          <%= f.submit "Send", class: "btn btn-primary btn-block" %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

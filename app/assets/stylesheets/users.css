@@ -20,11 +20,27 @@
     margin-top: 10px;
 }
 
+.m-t-25 {
+    margin-top: 25px;
+}
+
+.m-t-30 {
+    margin-top: 30px;
+}
+
 .m-t-40 {
     margin-top: 40px;
+}
+
+.m-t-50 {
+    margin-top: 50px;
 }
 
 .conv_header {
     font-size: 22px;
     margin-left: 2px;
+}
+
+.area-rounded {
+    border-radius: 10px;
 }
