@@ -17,31 +17,76 @@
     </div>
   </div>
 
-  <div class="row m-t-40">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="text-center card-header">
-          <span>
-            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-              <path fill="#000000" d="M17,12V3A1,1 0 0,0 16,2H3A1,1 0 0,0 2,3V17L6,13H16A1,1 0 0,0 17,12M21,6H19V15H6V17A1,1 0 0,0 7,18H18L22,22V7A1,1 0 0,0 21,6Z" />
-            </svg>
-          </span>
-          <span class="conv_header">Conversations</span>
-        </div>
-        <div class="card-body">
-          <ul class="nav nav-pills nav-fill">
+  <% if current_user == @user %>
+    
+    <div class="row m-t-40">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="text-center card-header">
+            <span>
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#000000" d="M17,12V3A1,1 0 0,0 16,2H3A1,1 0 0,0 2,3V17L6,13H16A1,1 0 0,0 17,12M21,6H19V15H6V17A1,1 0 0,0 7,18H18L22,22V7A1,1 0 0,0 21,6Z" />
+              </svg>
+            </span>
+            <span class="conv_header">Conversations</span>
+          </div>
+          <div class="card-body">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" href="#hello" data-toggle="tab">Received <span class="badge badge-light">3</span> </a>
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#hello" data-toggle="tab">Sent <span class="badge badge-dark">4</span> </a>
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#hello" data-toggle="tab">Liked <span class="badge badge-dark">2</span> </a>
+              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
             </li>
           </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+          </div>
+            <!--<ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#received" role="tab" aria-controls="home" aria-selected="true">
+                Received <span class="badge badge-success">4</span>   
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#sent" role="tab" aria-controls="profile" aria-selected="false">
+                Sent <span class="badge badge-success">4</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#favourites" role="tab" aria-controls="contact" aria-selected="false">
+                Favourites <span class="badge badge-success">4</span>
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              
+              <div class="tab-pane fade show active" id="received" role="tabpanel" aria-labelledby="received-tab">...
+                you dig
+              </div>
+              
+              <div class="tab-pane fade" id="sent" role="tabpanel" aria-labelledby="sent-tab">...
+                commot
+              </div>
+              
+              <div class="tab-pane fade" id="favourites" role="tabpanel" aria-labelledby="favourites-tab">...
+                yeah 
+              </div>
+            
+            </div>-->
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% else %>
+
+    <div class="form-group m-t-10">
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="type something awesome"></textarea>
+    </div>
+  <% end %>
 </div>
