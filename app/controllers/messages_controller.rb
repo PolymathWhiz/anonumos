@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   end
 
   def index
-    @message = Message.all
+    @message = Message.all #user specific email
   end
 
   def create
