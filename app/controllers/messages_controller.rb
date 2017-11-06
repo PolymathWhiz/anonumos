@@ -1,25 +1,21 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-
-  def new
-    @message = Message.new
-  end
+  # before_action :set_user, only: [:create]
 
   def index
     @message = Message.all #user specific email
   end
 
   def create
-    @sender = current_user
-    @receipient = User.friendly.find(params[:user_id])
-    
-    @message = @sender.messages.new(message_params)
+    @message = current_user.messages.new(message_params)
+    @message.sender_id = current_user.id
 
     if @message.save
       flash[:success] = "Message has been sent."
-      redirect_to current_user
+      redirect_to user_path(current_user)
     else
       flash[:danger] = "Error occured while sending the message."
+      # redirect_to user_path 
     end
   end
 
@@ -30,6 +26,6 @@ class MessagesController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:text, :sender_id, :receipient_id, :user_id)
+      params.require(:message).permit(:text, :sender_id, :recipient_id, :user_id)
     end
 end
