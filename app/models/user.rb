@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  # before_create :validate_username
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -12,8 +11,7 @@ class User < ApplicationRecord
                        uniqueness: { case_sensitive: false }
                        
   validates :name, presence: true
-  
-  # def validate_username
-  #   self.username = username.downcase unless username.blank?
-  # end
+
+  has_many :messages
+
 end

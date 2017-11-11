@@ -14,15 +14,10 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-
-
+# Use Devise for authentication
 gem 'devise'
 # Cool Urls
 gem 'friendly_id'
-# Rails-Jquery for Jquery
-gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
