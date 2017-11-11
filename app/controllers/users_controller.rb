@@ -3,8 +3,12 @@ class UsersController < ApplicationController
   
   def show
     @message = Message.new
-    @sent = Message.where(sender_id: current_user.id)
-    @received = Message.where(recipient_id: current_user.id)
+    if !current_user.nil?
+      @sent = Message.where(sender_id: current_user.id).order("CREATED_AT DESC")
+      @received = Message.where(recipient_id: current_user.id).order("CREATED_AT DESC") 
+    else
+      
+    end
   end
 
   private
