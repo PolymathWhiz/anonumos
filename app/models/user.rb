@@ -13,5 +13,6 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   has_many :messages
+  has_many :favourites, dependent: :destroy
 
 end

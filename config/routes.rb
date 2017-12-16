@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get '/u/:id', to: 'users#show', as: 'user'     
   end
   resources :messages, except: :destroy
+  resources :favourites, only: [:create, :destroy]
   
   get '/success', to: 'messages#success'
   

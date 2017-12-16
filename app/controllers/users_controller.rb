@@ -5,9 +5,7 @@ class UsersController < ApplicationController
     @message = Message.new
     if !current_user.nil?
       @sent = Message.where(sender_id: current_user.id).order("CREATED_AT DESC")
-      @received = Message.where(recipient_id: current_user.id).order("CREATED_AT DESC") 
-    else
-      
+      @received = Message.where(recipient_id: current_user.id).order("CREATED_AT DESC")       
     end
   end
 
